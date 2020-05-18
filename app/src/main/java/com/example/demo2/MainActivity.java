@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editText;
     private EditText editTextpassword;
     private final String TEXT_CONTENTS = "TextContent";
+    String st;
 
 
     @Override
@@ -39,9 +40,12 @@ public class MainActivity extends AppCompatActivity {
                         (editTextpassword.getText().toString().equals(pass)))
                 {
                     Intent intent = new Intent (MainActivity.this, Main2Activity.class);
+                    st=editText.getText().toString();
+                    intent.putExtra("Value",st);
                     startActivity(intent);
                     Toast.makeText(MainActivity.this, "Welcome Mihir", Toast.LENGTH_SHORT).show();
                     Log.d(TAG, "Correct ");
+
                 }
                 else
                 {
@@ -81,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onSaveInstanceState: in");
         outState.putString(TEXT_CONTENTS, editText.getText().toString());
         super.onSaveInstanceState(outState);
+        editText.setText("");
+        editTextpassword.setText("");
         Log.d(TAG, "onSaveInstanceState: out");
     }
 
