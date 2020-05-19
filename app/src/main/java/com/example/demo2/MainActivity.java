@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button button = (Button) findViewById(R.id.button);
+        Button reset = (Button) findViewById(R.id.reset);
         editText = (EditText) findViewById(R.id.editText);
         editTextpassword = (EditText) findViewById(R.id.editTextpassword);
 
@@ -55,6 +56,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setText("");
+                editTextpassword.setText("");
+            }
+        });
+
     }
 
     @Override
